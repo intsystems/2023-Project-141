@@ -51,6 +51,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">center</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="#abstract">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">Алгоритмы оценки параметров модели</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#beginner-s-talk">Beginner’s talk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#research-publications">Research publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#presentations-at-conferences-on-the-topic-of-research">Presentations at conferences on the topic of research</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#software-modules-developed-as-part-of-the-study">Software modules developed as part of the study</a></li>
@@ -115,6 +117,35 @@
 <section id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading"></a></h1>
 <p>В работе проводится метрический анализ пространства параметров нейросети. Авторы исследуют пространство параметров автоенкодера, как средства преобразования данных, непрерывных во времени. Более конкретно, мы оценим матожидание и ковариацию параметров модели, используя методы bootstrap, variational inference и др., проведем графический анализ распределения параметров, изучим их структуру сообществ. Анализ будет проведен для автоенкодеров типа RNN, CNN, SSA на задачах предсказания синтетических временных рядов, квазипериодических показаний акселерометра, периодических видеоданных.</p>
+</section>
+<section id="id1">
+<h1>Алгоритмы оценки параметров модели<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<ol class="arabic">
+<li><dl class="simple">
+<dt>Bootstrap</dt><dd><p>~ то же, что и crossvalidation, но только мы семплируем из из нашей выборки.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Cross-validation</dt><dd><p>Мы бьем выборку на фолды, обучаем модель на всех фолдах без одного (мб даже leave-one-out техника?). Т.е. получаем для каждого разбиения свой оптимальный набор параметров. Далее уже вычисляем E, cov.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Variational Inference</dt><dd><p>Что-то сложное. Не знаю, как работает. Почитать!!!</p>
+<p><strong>Найти</strong> библиотеку, делающую эту работу за нас.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="beginner-s-talk">
+<h1>Beginner’s talk<a class="headerlink" href="#beginner-s-talk" title="Permalink to this heading"></a></h1>
+<p><strong>Цель работы:</strong> уменьшить количество параметров нейросети. Мотивация: непрерывные данные часто являются сильно скоррелированными (так как сигнал зависит от сигнала в предыдущие моменты времени). Поэтому и модели, применяемые для предсказания сигнала могут переобучаться, имея скрытое пространство большой размерности.</p>
+<p><strong>Основная идея:</strong> исследовать матрицу корреляции параметров сети.
+Традиционный способ сделать это - смотреть на корелляции между каждой парой параметров (слоя сети), что не учитывает внутреннюю простую структуру сети: композиция линейных и простых нелинейных операций.</p>
+<p>Мы же применим другой подход, который заключается в исследовании пространства, сопряженного к пространству признаков. Для примера: в $y=sigma(Wx)$ строки W - линейные функционалы - формируют сопряженное пространство. Мы займемся строками W: каждая строка является случайной величиной (мы предпологаем ~ нормальной из-за большого количества данных по ЦПТ). Каждая такая строка имеет матожидание и матрицу ковариации. Строки и являются объектом исследования.</p>
+<p><strong>Ожидаемый результат:</strong> Ожидаем увилеть простую структуру пространства, наличие векторов, имеющих схожие функции (одинаковые cov матрицы, матожидание), наличие структуры сообществ векторов.</p>
 </section>
 <section id="research-publications">
 <h1>Research publications<a class="headerlink" href="#research-publications" title="Permalink to this heading"></a></h1>
@@ -181,7 +212,7 @@
 </dd>
 </dl>
 </li>
-<li><p>__Proposed <a href="#id2"><span class="problematic" id="id3">solution__</span></a>: description of the idea to implement in the project</p></li>
+<li><p>__Proposed <a href="#id3"><span class="problematic" id="id4">solution__</span></a>: description of the idea to implement in the project</p></li>
 <li><p>__Novelty__: Continous-time models are supposed to be simple due to their periodic nature. Since they approximate the vector fields, these models are universal. The model selection for the continuous time is not considered now, but at the time, it is acute for wearable multimedia devices for metaverse and augmented reality.</p></li>
 <li><p>__Supergoal__ To join two encoders in a signal decoding model to reveal the connection between video and fMRI, between fMRI and ECoG.</p></li>
 <li><p>__Authors__: Expert Strijov, consultant ?</p></li>
