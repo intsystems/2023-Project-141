@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#research-publications">Research publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#presentations-at-conferences-on-the-topic-of-research">Presentations at conferences on the topic of research</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#software-modules-developed-as-part-of-the-study">Software modules developed as part of the study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#problem-statment">Problem statment</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
 <ul>
@@ -133,6 +134,58 @@
 <li><p>A python package <em>mylib</em> with all implementation <a class="reference external" href="https://github.com/intsystems/ProjectTemplate/tree/master/src">here</a>.</p></li>
 <li><p>A code with all experiment visualisation <a class="reference external" href="https://github.comintsystems/ProjectTemplate/blob/master/code/main.ipynb">here</a>. Can use <a class="reference external" href="http://colab.research.google.com/github/intsystems/ProjectTemplate/blob/master/code/main.ipynb">colab</a>.</p></li>
 </ol>
+</section>
+<section id="problem-statment">
+<h1>Problem statment<a class="headerlink" href="#problem-statment" title="Permalink to this heading"></a></h1>
+<p>## Problem 141
+* __Title__: Metric analysis of deep network space parameters
+* __Problem__: The structure of a neural work is exhaustive. The dimensionality of the parameter space should be reduced. The autoencoder in the subject of the investigation. Due to the continuous-time nature of the data, we analyze several types of autoencoders. We reconstruct spatial-time data, minimizing the error.
+* __Data__:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Synthetic data sine for 2D visualizaion of the parameter distributions</p></li>
+<li><p>Accelerometer quasiperiodic data</p></li>
+<li><p>Limb movement quasiperiodic data (if any)</p></li>
+<li><p>Video periodic data (cartoon, walking persona)</p></li>
+<li><p>Video, fMRI, ECoG from the s41597-022-01173-0</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>__References__:</dt><dd><ul>
+<li><p>[SSA and Hankel matrix construction](<a class="reference external" href="http://strijov.com/papers/Grabovoy2019QuasiPeriodicTimeSeries.pdf">http://strijov.com/papers/Grabovoy2019QuasiPeriodicTimeSeries.pdf</a>) or in [wiki](<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_spectrum_analysis">https://en.wikipedia.org/wiki/Singular_spectrum_analysis</a>)</p></li>
+<li><p>[Open multimodal iEEG-fMRI dataset from naturalistic stimulation](<a class="reference external" href="https://www.nature.com/articles/s41597-022-01173-0">https://www.nature.com/articles/s41597-022-01173-0</a>)</p></li>
+<li><p>[Variational autoencoders to estimate parameters](<a class="reference external" href="https://arxiv.org/pdf/1606.05908.pdf">https://arxiv.org/pdf/1606.05908.pdf</a>)</p></li>
+<li><p>RNN in the [5G book](<a class="reference external" href="https://arxiv.org/abs/2104.13478">https://arxiv.org/abs/2104.13478</a>)</p></li>
+<li><p>[Neural CDE](<a class="reference external" href="https://bit.ly/NeuroCDE">https://bit.ly/NeuroCDE</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>__Baseline__: RNN-like variational autoencoder in the criteria: error vs. complexity (number of parameters)</p></li>
+<li><dl class="simple">
+<dt>__Roadmap__:</dt><dd><ul>
+<li><p>Prepare data so that the reconstruction work on a basic model (like SSA)</p></li>
+<li><p>Estimate expectation and covariance of parameters (using VAE or else, to be discussed)</p></li>
+<li><p>Reduce dimensionality, plot the error/complexity, plot the covariance</p></li>
+<li><p>Run RNN-like model, plot</p></li>
+<li><p>Assign the expectation and covariation matrix to each neuron of the model</p></li>
+<li><p>Plot the parameter space regarding covariance as its metric tensor (end of minimum part)</p></li>
+<li><p>Suggest a dimensionality reduction algorithm (naive part)</p></li>
+<li><p>Run Neuro ODE/CDE model and plot the parameter space</p></li>
+<li><p>Analyse the data distribution as the normalized flow</p></li>
+<li><p>Suggest the parameter space modification in terms of  the normalized flow (paradoxical part, diffusion model is needed)</p></li>
+<li><p>Compare all models according to the criterion error/complexity (max part)</p></li>
+<li><p>Construct the decoder model for any pair of data like fMRI-ECoG tensor and neuro CDE (supermax part)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>__Proposed <a href="#id2"><span class="problematic" id="id3">solution__</span></a>: description of the idea to implement in the project</p></li>
+<li><p>__Novelty__: Continous-time models are supposed to be simple due to their periodic nature. Since they approximate the vector fields, these models are universal. The model selection for the continuous time is not considered now, but at the time, it is acute for wearable multimedia devices for metaverse and augmented reality.</p></li>
+<li><p>__Supergoal__ To join two encoders in a signal decoding model to reveal the connection between video and fMRI, between fMRI and ECoG.</p></li>
+<li><p>__Authors__: Expert Strijov, consultant ?</p></li>
+</ul>
 </section>
 
 
