@@ -71,7 +71,7 @@ Software modules developed as part of the study
 
 Problem statment
 ======================================================
-## Problem 141
+Problem 141
 * __Title__: Metric analysis of deep network space parameters
 * __Problem__: The structure of a neural work is exhaustive. The dimensionality of the parameter space should be reduced. The autoencoder in the subject of the investigation. Due to the continuous-time nature of the data, we analyze several types of autoencoders. We reconstruct spatial-time data, minimizing the error. 
 * __Data__: 
