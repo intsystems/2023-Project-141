@@ -1,37 +1,40 @@
 \documentclass{article}
+
 \usepackage{arxiv}
 
-\usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{url}
-\usepackage{booktabs}
-\usepackage{amsfonts}
-\usepackage{nicefrac}
-\usepackage{microtype}
-\usepackage{lipsum}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{natbib}
 \usepackage{doi}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[english,russian]{babel}
 
+\title{Метрический анализ пространства параметров глубоких нейросетей.}
 
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
 
-\title{A template for the \emph{arxiv} style}
-
-\author{ David S.~Hippocampus\thanks{Use footnote for providing further
+\author{Эрнест Р.~Насыров\thanks{Use footnote for providing further
 		information about author (webpage, alternative
-		address)---\emph{not} for acknowledging funding agencies.} \\
-	Department of Computer Science\\
-	Cranberry-Lemon University\\
-	Pittsburgh, PA 15213 \\
-	\texttt{hippo@cs.cranberry-lemon.edu} \\
+		address)} \\
+	ФПМИ\\
+	МФТИ\\
+	Долгопрудный\\
+	\texttt{nasyrov.rr@phystech.edu} \\
 	%% examples of more authors
-	\And
-	Elias D.~Striatum \\
-	Department of Electrical Engineering\\
-	Mount-Sheikh University\\
-	Santa Narimana, Levand \\
-	\texttt{stariate@ee.mount-sheikh.edu} \\
+    }
+	
 	%% \AND
 	%% Coauthor \\
 	%% Affiliation \\
@@ -47,112 +50,101 @@
 	%% Affiliation \\
 	%% Address \\
 	%% \texttt{email} \\
-}
-\date{}
 
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
 \renewcommand{\shorttitle}{\textit{arXiv} Template}
 
 %%% Add PDF metadata to help others organize their library
 %%% Once the PDF is generated, you can check the metadata with
 %%% $ pdfinfo template.pdf
 \hypersetup{
-pdftitle={A template for the arxiv style},
+pdftitle={Метрический анализ пространства параметров глубоких нейросетей},
 pdfsubject={q-bio.NC, q-bio.QM},
-pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
-pdfkeywords={First keyword, Second keyword, More},
+pdfauthor={Эрнест Р.~Насыров},
+pdfkeywords={нет слова},
 }
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-	\lipsum[1]
+В работе исследуется проблема снижения размерности пространства параметров модели. В ее рамках решается задача восстановления временного ряда. В качестве модели восстановления ряда используются различные автоенкодеры. В работе проводится метрический анализ пространства параметров автоенкодера. Новизна заключается в том, что отдельные параметры модели - случайные величины - собираются в векторы – многомерные случайные величины, анализ взаимного расположения которых в пространстве и представляет предмет исследования нашей работы. Этот анализ позволит снизить количество параметров модели, сделать выводы о значимости параметров, произвести их отбор. Для определения положения вектора параметров в пространстве оцениваются его матожидание и матрица ковариации с помощью методов bootstrap и variational inference. Эксперименты проводятся на моделях SSA, RNN и VAE на задачах предсказания синтетических временных рядов, квазипериодических показаний акселерометра, периодических видеоданных.
 \end{abstract}
 
 
-\keywords{First keyword \and Second keyword \and More}
+% keywords can be removed
+%\keywords{First keyword \and Second keyword \and More}
+
 
 \section{Introduction}
-\lipsum[2]
-\lipsum[3]
 
-\section{Headings: first level}
-\label{sec:headings}
+% 1. История + связанные понятия (выбор оптимально модели ...).
 
-\lipsum[4] See Section \ref{sec:headings}.
+С развитием технологий скорость обработки данных растет, они становятся более сложными, большей размерности. Такие высокоразмерные данные часто избыточны, хотя и содержат много полезной информации, что представляет сложность для их эффективной обработки и использования. Отсюда возникает задача снижения размерности признакового описания объекта, которая привлекла большое внимание ученых. Ее базовый принцип состоит в том, чтобы отобразить высокоразмерное признаковое пространство в низкоразмерное, сохраняя важную информацию о данных \citep{jia2022feature}.
 
-\subsection{Headings: second level}
-\lipsum[5]
-\begin{equation}
-	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-\end{equation}
+На текущий момент известно много методов снижения размерности данных. В работе \citep{ornek2019nonlinear} снижения размерности достигается за счет построения дифференцируемой функции эмбеддинга в низкоразмерное представление, а в \citep{cunningham2014dimensionality} обсуждаюся линейные методы. 
 
-\subsubsection{Headings: third level}
-\lipsum[6]
-
-\paragraph{Paragraph}
-\lipsum[7]
+В работе \citep{isachenko2022quadratic} задача снижения размерности решается для предсказания движения конечностей человека по электрокортикограмме с использованием  метода QPFS, учитывающем мультикоррелированность и входных, и целевых признаков.
 
 
 
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
+Наряду с задачей снижения размерности входных данных стоит задача выбора оптимальной структуры модели. В случае оптимизации структуры нейросети, большое внимание уделено изучению признакового пространства модели. В работах \citep{hassibi1993optimal} и \citep{dong2017learning} применяется метод OBS (Optimal Brain Surgeon), состоящий в удалении весов сети с сохранением ее качества аппроксимации, причем выбор удаляемых весов производится с помощью вычисления гессиана функции ошибки по весам.
 
-\subsection{Citations}
-Citations use \verb+natbib+. The documentation may be found at
-\begin{center}
-	\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-
-Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, hadash2018estimate} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
-
-\subsection{Figures}
-\lipsum[10]
-See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-\lipsum[11]
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.5\textwidth]{../figures/log_reg_cs_exp.eps}
-	\caption{Sample figure caption.}
-	\label{fig:fig1}
-\end{figure}
-
-\subsection{Tables}
-See awesome Table~\ref{tab:table}.
-
-The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
-\begin{center}
-	\url{https://www.ctan.org/pkg/booktabs}
-\end{center}
+В статье \citep{грабовой2019определение} приводится метод первого порядка, решающий задачу удаления весов, основанный на нахождении дисперсии градиента функции ошибки по параметру и анализе ковариационной матрицы параметров, а в статье \citep{грабовой2020введение} нерелевантные веса не удаляют, а прекращают их обучение.
 
 
-\begin{table}
-	\caption{Sample table title}
-	\centering
-	\begin{tabular}{lll}
-		\toprule
-		\multicolumn{2}{c}{Part}                   \\
-		\cmidrule(r){1-2}
-		Name     & Description     & Size ($\mu$m) \\
-		\midrule
-		Dendrite & Input terminal  & $\sim$100     \\
-		Axon     & Output terminal & $\sim$10      \\
-		Soma     & Cell body       & up to $10^6$  \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:table}
-\end{table}
+% 2. А вот тут пошла актуальность
+Приведенные выше задачи понижения размерности данных и выбора оптимальной структуры нейросети основаны на исследовании пространства входных данных и пространства признаков соответственно. На взгляд авторов статьи, существенный недостаткок предыдущих работ состоит в том, что в них анализируются \textit{отдельные} параметры (скаляры) моделей и их взаимозависимость. Тем самым не учитывается, что на входные данные действуют \textit{вектора} параметров посредством скалярных произведений, то есть упускается из виду простая \textit{структура} преобразования.
 
-\subsection{Lists}
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet
-	\item consectetur adipiscing elit.
-	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
+В данной работе мы решаем задачу восстановления временного ряда, в рамках которой занимаемся проблемой снижения пространства параметров модели, основанном на анализе сопряженного пространства ко входному, которое связывает входное пространство и пространство параметров. 
 
+Наше исследование в большой степени полагается на простоту устройства глубоких нейросетей, которые являются композицией линейных и простых нелинейных функций (функций активации). Составной блок нейросети может быть описан формулой  $y=\sigma(Wx), y \in \mathbb{R}^m, x \in \mathbb{R}^n, W \in \mathbb{R}^{m \times n}б \sigma: \mathbb{R} \to \mathbb{R}$. Тогда если раньше элементы $W_{ij}$ исследовались по-отдельности, как скаляры, то в нашей работе изучаются векторы-строки $w_1, \dots, w_m: W = \begin{pmatrix}
+w_1^T\\
+\dots\\
+w_m^T\\
+\end{pmatrix}$. В нейросети эти строки обычно называются \textit{нейронами}. В SSA $\sigma = Id$, а матрица $W=W_k$ это приближение истинной матрицы фазовых траекторий $X$ (матрицы Ганкеля) суммой $k$ элементарных матриц.
+
+Мы предполагаем, что каждая точка фазовой траектории распределена нормально вокруг своего матожидания. Тогда обучающая выборка $\mathcal{D}=(\boldsymbol{X}, \boldsymbol{y})$ это набор случайных величин, поэтому и результат обучения модели на ней, то есть веса модели тоже будут случайными. 
+
+В работе исследуется положение случайных векторов параметров модели $w_i$ в метрическом пространстве. С помощью методов bootstrap и Variational Inference \citep{hastie2009elements} оцениваются их матожидания $e_i=Ew_i$ и ковариационные матрицы $var(w_i) = \boldsymbol{A}^{-1}_i$. Мы работаем в гипотезе, что эти векторы $w_i$ распределены нормально, таким образом пара $(e_i, \boldsymbol{A}^{-1}_i)$ полностью описывает вероятностное распределение вектора $w_i$. 
+
+В качестве графического анализа пространства производится изображение положения этих векторов как смеси гауссианов \ref{ris:gauss_mixture}, а также изображение $95\%$ доверительной области каждого вектора \ref{ris:gauss_conf_area}.
+
+% Картинки, иллюстрирующие сказанное выше
+\begin{wrapfigure}{r}{0.30\textwidth}
+
+\includegraphics[width=0.25\textwidth]{gaussian_mixture.jpg}
+\caption{Пример смеси гауссианов для 2-х мерных векторов.}
+\label{ris:gauss_mixture}
+
+\includegraphics[width=0.25\textwidth]{gaussian_conf_area.jpg}
+\caption{Пример доверительных областей для 3-х мерных векторов.}
+\label{ris:gauss_conf_area}
+
+\end{wrapfigure}
+
+
+Уменьшение размерности достигается за счет метрического анализа пространства векторов-параметров путем отбора релевантных строк (с малой дисперсией), замены мультикоррелирующих строк на их линейную композицию с помощью обобщения алгоритма QPFS, изучения структуры сообществ строк.
+
+В качестве базовых моделей используются SSA (\citep{golyandina2001analysis}), нелинейный PCA???(А как назвать?, ссылка на источник!), RNN (\citep{bronstein2021geometric}) и NeuroODE (\citep{chen2018neural}).
+
+Задача восстановления временного ряда решается на синтетических данных зашумленного $sin$, данных показания акселерометра в датасете MotionSense3 \citep{malekzadeh2018protecting} (НЕТ ДОСТУПА К ЭТИМ ДАННЫМ: ДОСТУПНЫ ТОЛЬКО ПО ЗАПРОСУ), периодичных видеоданных (НАЙТИ ИХ). 
+
+
+% А дальше немного про SSA, RNN и VAE (И посмотреть на модели Стрижова!!!)
+\newpage
 
 \bibliographystyle{unsrtnat}
-\bibliography{references}
+\bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
+
+
+
+
 
 \end{document}
