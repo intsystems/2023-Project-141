@@ -51,11 +51,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">center</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="#abstract">Abstract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id1">Алгоритмы оценки параметров модели</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#beginner-s-talk">Beginner’s talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#research-publications">Research publications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#presentations-at-conferences-on-the-topic-of-research">Presentations at conferences on the topic of research</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#software-modules-developed-as-part-of-the-study">Software modules developed as part of the study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#presentations-at-conferences-on-the-topic-of-research">Presentations at conferences on the topic of research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#research-publications">Research publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#problem-statment">Problem statment</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
@@ -114,61 +112,32 @@
 </dl>
 </dd></dl>
 
-<p><strong>Читать</strong> статью <a class="reference external" href="http://www.machinelearning.ru/wiki/index.php?title=%D0%9D%D0%B0%D1%83%D1%87%D0%BD%D0%BE-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%28%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8%29">http://www.machinelearning.ru/wiki/index.php?title=%D0%9D%D0%B0%D1%83%D1%87%D0%BD%D0%BE-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%28%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8%29</a>
+<p><strong>Читать</strong> <a class="reference external" href="http://www.machinelearning.ru/wiki/index.php?title=%D0%9D%D0%B0%D1%83%D1%87%D0%BD%D0%BE-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%28%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8%29">статью</a>
 про то, как заниматься наукой</p>
 <section id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading"></a></h1>
 <p>Исследуется проблема снижения размерности пространства параметров модели машинного обучения. Решается задача восстановления временного ряда. Для восстановления используются авторегресионные модели: линейные, автоенкодеры, реккурентные сети - с непрерывным и дискретным временем. Проводится метрический анализ пространства параметров модели.  Предполагается, что отдельные параметры модели, случайные величины, собираются в векторы, многомерные случайные величины, анализ взаимного расположения которых в пространстве и представляет предмет исследования нашей работы.  Этот анализ снижает число параметров модели, оценивает значимости параметров, отбирая их. Для определения положения вектора параметров в пространстве оцениваются его матожидание и матрица ковариации с помощью методов textit{бутстрэпа} и textit{вариационного вывода}. Эксперименты проводятся на задачах восстановления синтетических временных рядов, квазипериодических показаний акселерометра, периодических видеоданных. Для восстановления применяются модели SSA, нелинейного PCA, RNN, Neural ODE.</p>
-<p>LinkReview: [<a class="reference external" href="https://docs.google.com/document/d/197ZZ3pAftQzLtEjYcW8KKgALDledXuotjdYXJnXwgH0/edit?usp=sharing">https://docs.google.com/document/d/197ZZ3pAftQzLtEjYcW8KKgALDledXuotjdYXJnXwgH0/edit?usp=sharing</a>]</p>
+<p><a class="reference external" href="https://docs.google.com/document/d/197ZZ3pAftQzLtEjYcW8KKgALDledXuotjdYXJnXwgH0/edit?usp=sharing">LinkReview</a>,
+<a class="reference external" href="https://github.com/intsystems/2023-Project-141/blob/master/paper/Nasyrov2023_metric_analysis.pdf">Paper</a>,
+<a class="reference external" href="https://github.com/intsystems/2023-Project-141/blob/master/code/Metric_analysis_basic_code.ipynb">Basic code</a>,
+<a class="reference external" href="https://github.com/intsystems/2023-Project-141/blob/master/slides/Nasyrov2023Presentation.pdf">Slides</a>.</p>
 </section>
-<section id="id1">
-<h1>Алгоритмы оценки параметров модели<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
-<ol class="arabic">
-<li><dl class="simple">
-<dt>Bootstrap</dt><dd><p>~ то же, что и crossvalidation, но только мы семплируем из из нашей выборки.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Cross-validation</dt><dd><p>Мы бьем выборку на фолды, обучаем модель на всех фолдах без одного (мб даже leave-one-out техника?). Т.е. получаем для каждого разбиения свой оптимальный набор параметров. Далее уже вычисляем E, cov.</p>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Variational Inference</dt><dd><p>Что-то сложное. Не знаю, как работает. Почитать!!!</p>
-<p><strong>Найти</strong> библиотеку, делающую эту работу за нас.</p>
-</dd>
-</dl>
-</li>
-</ol>
-</section>
-<section id="beginner-s-talk">
-<h1>Beginner’s talk<a class="headerlink" href="#beginner-s-talk" title="Permalink to this heading"></a></h1>
-<p>Метрический анализ пространства параметров глубоких нейросетей</p>
-<p><strong>Цель работы:</strong> уменьшить количество параметров нейросети. Мотивация: непрерывные данные часто являются сильно скоррелированными (так как сигнал зависит от сигнала в предыдущие моменты времени). Поэтому и модели, применяемые для предсказания сигнала могут переобучаться, имея скрытое пространство большой размерности.</p>
-<p><strong>Основная идея:</strong> исследовать матрицу корреляции параметров сети.
-Традиционный способ сделать это - смотреть на корелляции между каждой парой скалярных параметров, то есть чисел (слоя сети), что не учитывает внутреннюю простую структуру сети: композиция линейных и простых нелинейных операций.</p>
-<p>Для простой неросети $y=sigma(Wx)$ мы иссоедуем строки матрицы W, как линейные функционалы в сопряженном пространстве. Каждая такая строка имеет матожидание и матрицу ковариации. Строки и являются объектом исследования.</p>
-<p>Мы же применим другой подход, который заключается в исследовании пространства, сопряженного ко входному пространству. Самая простая нейросеть: $y=sigma(Wx)$. Если в первом подходе исследовалась зависимость между отдельными элементами $W$, то теперь мы будем смотреть на строки: каждая строка является случайной величиной (мы предпологаем ~ нормальной из-за большого количества данных по ЦПТ). Каждая такая строка имеет матожидание и матрицу ковариации. Строки и являются объектом исследования.</p>
-<p><strong>Ожидаемый результат:</strong> состоит в том, что пространство параметров-строк будет простой структуры, будет обладать структурой сообществ, которая позволит для каждого нейрона определить, насколько он значим (по матрице ковариации), отобрать параметры или преобразовать их.</p>
-</section>
-<section id="research-publications">
-<h1>Research publications<a class="headerlink" href="#research-publications" title="Permalink to this heading"></a></h1>
+<section id="software-modules-developed-as-part-of-the-study">
+<h1>Software modules developed as part of the study<a class="headerlink" href="#software-modules-developed-as-part-of-the-study" title="Permalink to this heading"></a></h1>
 <ol class="arabic simple">
-<li></li>
+<li><p>Базовый код с 2 экспериментами (SSA, 2NN)  находится <a class="reference external" href="https://github.com/intsystems/2023-Project-141/blob/master/code/Metric_analysis_basic_code.ipynb">здесь</a>. Можно использовать <a class="reference external" href="http://colab.research.google.com/github/intsystems/2023-Project-141/blob/master/code/Metric_analysis_basic_code.ipynb">colab</a>.</p></li>
 </ol>
 </section>
 <section id="presentations-at-conferences-on-the-topic-of-research">
 <h1>Presentations at conferences on the topic of research<a class="headerlink" href="#presentations-at-conferences-on-the-topic-of-research" title="Permalink to this heading"></a></h1>
 <ol class="arabic simple">
-<li></li>
+<li><p>Планируется участие в конференции МФТИ. Дедлайн - 15 марта.</p></li>
 </ol>
 </section>
-<section id="software-modules-developed-as-part-of-the-study">
-<h1>Software modules developed as part of the study<a class="headerlink" href="#software-modules-developed-as-part-of-the-study" title="Permalink to this heading"></a></h1>
+<section id="research-publications">
+<h1>Research publications<a class="headerlink" href="#research-publications" title="Permalink to this heading"></a></h1>
 <ol class="arabic simple">
-<li><p>A python package <em>mylib</em> with all implementation <a class="reference external" href="https://github.com/intsystems/ProjectTemplate/tree/master/src">here</a>.</p></li>
-<li><p>A code with all experiment visualisation <a class="reference external" href="https://github.comintsystems/ProjectTemplate/blob/master/code/main.ipynb">here</a>. Can use <a class="reference external" href="http://colab.research.google.com/github/intsystems/ProjectTemplate/blob/master/code/main.ipynb">colab</a>.</p></li>
+<li></li>
 </ol>
 </section>
 <section id="problem-statment">
@@ -217,7 +186,7 @@
 </dd>
 </dl>
 </li>
-<li><p>__Proposed <a href="#id3"><span class="problematic" id="id4">solution__</span></a>: description of the idea to implement in the project</p></li>
+<li><p>__Proposed <a href="#id2"><span class="problematic" id="id3">solution__</span></a>: description of the idea to implement in the project</p></li>
 <li><p>__Novelty__: Continous-time models are supposed to be simple due to their periodic nature. Since they approximate the vector fields, these models are universal. The model selection for the continuous time is not considered now, but at the time, it is acute for wearable multimedia devices for metaverse and augmented reality.</p></li>
 <li><p>__Supergoal__ To join two encoders in a signal decoding model to reveal the connection between video and fMRI, between fMRI and ECoG.</p></li>
 <li><p>__Authors__: Expert Strijov, consultant ?</p></li>
