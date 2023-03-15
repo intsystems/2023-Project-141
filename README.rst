@@ -38,9 +38,11 @@ Abstract
 
 Software modules developed as part of the study
 ======================================================
-1. Базовый код с 2 экспериментами (SSA, 2NN)  находится `здесь <https://github.com/intsystems/2023-Project-141/blob/master/code/Metric_analysis_basic_code.ipynb>`_. Можно использовать `colab <http://colab.research.google.com/github/intsystems/2023-Project-141/blob/master/code/Metric_analysis_basic_code.ipynb>`_.
-
-
+1. Код экспериментов по восстановлению временного ряда с SSA `здесь <https://github.com/intsystems/2023-Project-141/blob/master/code/ssa_experiment.ipynb>`_.
+	На текущий момент использовались данные синтетического $\sin$, `colab <http://colab.research.google.com/github/intsystems/2023-Project-141/blob/master/code/ssa_experiment.ipynb>`_-версия.
+2. Код экспериментов по восстановлению временного ряда с 2NN `здесь <https://github.com/intsystems/2023-Project-141/blob/master/code/2nn_experiment.ipynb>`_. 
+	На текущий момент использовались данные синтетического $\sin$, `colab <http://colab.research.google.com/github/intsystems/2023-Project-141/blob/master/code/2nn_experiment.ipynb>`_-версия.
+	
 Presentations at conferences on the topic of research
 ================================================
 1. Планируется участие в конференции МФТИ. Дедлайн - 15 марта.
